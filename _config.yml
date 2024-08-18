@@ -1,0 +1,127 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your entire site, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# `jekyll serve -l -H localhost`. If you change this file, please restart the
+# server process.
+
+# Basic settings. 
+locale: "en-US"
+timezone: Europe/Berlin # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+title: "Atanas Mirchev"
+title_separator: "-"
+name: &name "Atanas Mirchev"
+description: &description "researcher in ML & robotics"
+url: https://atanasmirchev.github.io
+baseurl: "" # the subpath of your site, e.g. "/blog"
+repository: "atanasmirchev/atanasmirchev.github.io"
+
+# Author information (sidebar).
+# See _includes/author-profile.html.
+author:
+  avatar: "profile.png"
+  name: "Atanas Mirchev"
+  bio: "Research scientist at Volkswagen AG, TUM alumni"
+  location: "Munich, Germany"
+  employer: "Volkswagen AG"
+  uri: # URL
+  email: "atanas.mirchev.official@gmail.com"
+
+  # Academic websites
+  arxiv: # URL - Update with the correct link to your profile
+  googlescholar: "https://scholar.google.de/citations?user=SOpU_eAAAAAJ"
+
+  # Repositories and software development
+  github: "taimir"
+
+# Site Settings
+breadcrumbs: true
+words_per_minute: 160
+
+# SEO.
+google_site_verification:
+bing_site_verification:
+alexa_site_verification:
+yandex_site_verification:
+
+# Files.
+include:
+  - .htaccess
+  - _pages
+  - files
+exclude:
+  - .asset-cache
+  - .bundle
+  - .github
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/_main.js
+  - assets/js/plugins
+  - assets/js/vendor
+  - CHANGELOG
+  - Capfile
+  - config
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - log
+  - node_modules
+  - package.json*
+  - Rakefile
+  - README
+  - tmp
+  - vendor
+keep_files:
+  - .git
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Markdown processing.
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+# These settings control how pages and collections are included in the site
+defaults:
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+# Stayling via sass/scss.
+sass:
+  sass_dir: _sass
+  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
+# Plugins.
+plugins:
+  - jekyll-gist
+  - jekyll-redirect-from
+# mimic GitHub Pages with --safe
+whitelist:
+  - jekyll-gist
+  - jemoji
+
+# HTML compression.
+compress_html:
+  clippings: all
+  ignore:
+    envs: development
