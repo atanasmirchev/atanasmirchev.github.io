@@ -113,12 +113,15 @@ sass:
 
 # Plugins.
 plugins:
-  - jekyll-gist
-  - jekyll-redirect-from
+  - jekyll/scholar
 # mimic GitHub Pages with --safe
 whitelist:
-  - jekyll-gist
+  - jekyll/scholar
   - jemoji
+
+# Scholar citation configuration.
+scholar:
+  style: din-1505-2-numeric
 
 # HTML compression.
 compress_html:
