@@ -13,6 +13,7 @@ My PhD dissertation is available on [mediatum.ub.tum.de](https://mediatum.ub.tum
 Also, I should have pointed out that classical *grid-based* RBPFs already had an integration of a dense map in an SSM and raw range observations, even if lower-dimensional than modern dense RGB-D SLAM.
 The method in {% cite fairfield2007realtime %} also used a 3D ray-tracing sonar emission, with a small number of rays for speed.
 Notions from this line of work can be traced all the way back to {% cite moravec1985occupancymaps %} and also appear in the dissertation (e.g. grids, occupancy, stepping along rays, closed-form map updates alike those in PRISM, etc.).
+And of course RBPFs provide complete posterior distributions, which the dissertation strives to do as well, but with different inference algorithms.
 Please note the similarity of such methods and interpret the contributions in that context.
 
 - To add to the above: if I am not mistaken {% cite haehnel2003efficient %} was the first grid-based RBPF to be applied to real-world 2D data; you can also see {% cite hoehner2018particle %} for a modern attempt to mix a particle filter (not Rao-Blackwellized) with a 3D TSDF map, using a non-ray-tracing implicit emission.
