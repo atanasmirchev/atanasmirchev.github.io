@@ -14,7 +14,7 @@ Also, I should have pointed out that classical *grid-based* RBPFs already had an
 The method in {% cite fairfield2007realtime %} also used a 3D ray-tracing sonar emission, with a small number of rays for speed.
 Notions from this line of work can be traced all the way back to {% cite moravec1985occupancymaps %} and also appear in the dissertation (e.g. grids, occupancy, stepping along rays, closed-form map updates alike those in PRISM, etc.).
 And of course RBPFs provide complete posterior distributions, just like the other classical-era SLAMs in the related work (e.g. EKFs), which the dissertation strives to do as well, but with different inference algorithms (e.g. PRISM has a similar Bayes-filter recursion, but works differently).
-Combined, these analogies span the spectrum of thesis aspects (e.g. sec. 3.3), the difference in the thesis is in the underlying model assumptions & inference methods, designed to fit both RGB-D sensors and free 6-DoF movement.
+Combined, these analogies span the spectrum of thesis aspects (see sec. 3.3), the difference in the thesis is in the underlying model assumptions & inference methods, designed to fit both RGB-D sensors and free 6-DoF movement.
 Please note the similarity of such methods and interpret the contributions in that context.
 
 - To add to the above: if I am not mistaken {% cite haehnel2003efficient %} was the first grid-based RBPF to be applied to real-world 2D data; you can also see {% cite hoehner2018particle %} for a modern attempt to mix a particle filter (not Rao-Blackwellized) with a 3D TSDF map, using a non-ray-tracing implicit emission.
@@ -26,6 +26,8 @@ This is the same idea as eq. 5.19, I believe with some minor technical differenc
 - On p. 74 I mention that there is some novelty in basing infogain exploration on VSSM-LM's rendering and PRISM's map filter (see Ziqing's work on exploration).
 Here I want to point out {% cite saulnier2020information %} which uses 2D TSDF maps and is overall quite similar, particularly in its map updates (modulo some technicalities: 2D vs. 3D, rendering, map update & uncertainty truncation, candidate generation).
 Note that such exploration is very traditional, if you are interested some early works are {% cite stachniss2003exploring triebel2004first stachniss2009exploration %} and you can find a few more modern 3D ones in the related work.
+
+- Apropos: classical grid-based RBPFs also harmonize with such exploration (see {% cite stachniss2009exploration %}).
 
 After the defense, I added {% cite wagner2014humanoid klingensmith2016armslam scona2017proprioception %} last-minute as part of a more general discussion in the related work section, but failed to point out the above in time.
 Please take care if you cite.
