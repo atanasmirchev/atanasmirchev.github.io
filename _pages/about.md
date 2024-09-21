@@ -19,6 +19,8 @@ Please note the similarity of such methods and interpret the contributions in th
 
 - To add to the above: if I am not mistaken {% cite haehnel2003efficient %} was the first grid-based RBPF to be applied to real-world 2D data; you can also see {% cite hoehner2018particle %} for a modern attempt to mix a particle filter (not Rao-Blackwellized) with a 3D TSDF map, using a non-ray-tracing implicit emission.
 
+- In general, classical-era EKF & RBPF SLAMs from the 2000s already had a unity of probalistic SSM & spatial assumptions (I hope this is clear from the related work on robotics, as I noted there they are POMDP-compliant). The aim of the thesis is to provide a similar unified perspective for modern RGB-D dense SLAM.
+
 - On p. 68, line 3 I discuss a dynamics term in eq. 5.19 as new.
 When I wrote this line I was not aware of some overlap with prior works (e.g. {% cite wagner2014humanoid klingensmith2016armslam scona2017proprioception laidlow2017rgbdinertial houseago2019kofusion %}) which fuse dense visual frame-to-model tracking with external pose estimates (e.g. from wheel encoders, robot joint measurements or IMU data).
 This is the same idea as eq. 5.19, I believe with some minor technical differences (e.g. map and rendering details) and possibly a slight difference in perspective (controlled transition vs. motion prior from measurements).
@@ -29,7 +31,7 @@ Note that such exploration is very traditional, if you are interested some early
 
 - Apropos: classical grid-based RBPFs also harmonize with such exploration (see {% cite stachniss2009exploration %}).
 
-After the defense, I added {% cite wagner2014humanoid klingensmith2016armslam scona2017proprioception %} last-minute as part of a more general discussion in the related work section, but failed to point out the above in time.
+After the defense, I added {% cite wagner2014humanoid klingensmith2016armslam scona2017proprioception %} last-minute as part of a more general discussion in the related work section, but I did not point out the above.
 Please take care if you cite.
 
 ## References
