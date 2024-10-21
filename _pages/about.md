@@ -26,7 +26,9 @@ Also, I should have pointed out that classical *grid-based* RBPFs already had an
 - In summary, classical-era EKF & RBPF SLAMs from the 2000s already had a unity of probalistic SSM & spatial assumptions (I hope this is clear from the related work on robotics, as I noted there they are POMDP-compliant).
 And as you can see from the above, grid RBPFs already had an SSM with a dense map, and at least one paper ({% cite fairfield2007realtime %}) was about scaling that to 3D.
 The aim of my thesis was to provide a similar unified perspective for modern RGB-D dense SLAM.
-I think the last point should be clear if you read end-to-end, but if you see isolated mentions of "dense SLAM", note that I was thinking of generating images with thousands of pixels (e.g. as in most RGB-D methods).
+
+    I think the last point should be clear if you read end-to-end, but if you see isolated mentions of "dense SLAM" and it is unclear what I meant from the context, note that the go-to prototypical example I had in mind was generating images with thousands of pixels (e.g. as in contemporary RGB-D or NERF methods).
+    I do not recall how well I separated modern high-resolution (colored) 3D lidars in my mind in these cases, but in hindsight I think it is cleaner to treat them as separate, because the thesis has solely RGB-D results and I am also more aware of RGB(-D) than lidar trends.
 
 - On p. 68, line 3 I discuss a dynamics term in eq. 5.19 as new.
 When I wrote this line I was not aware of some overlap with prior works (e.g. {% cite wagner2014humanoid klingensmith2016armslam scona2017proprioception laidlow2017rgbdinertial houseago2019kofusion %}) which fuse dense visual frame-to-model tracking with external pose estimates (e.g. from wheel encoders, robot joint measurements or IMU data).
