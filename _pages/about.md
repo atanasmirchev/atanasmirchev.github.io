@@ -21,7 +21,7 @@ Also, I should have pointed out that classical *grid-based* RBPFs already had an
     Combined, these analogies span the spectrum of thesis aspects (see sec. 3.3), the difference in the thesis is in the underlying model assumptions & inference methods, designed to fit both RGB-D sensors and free 6-DoF movement.
     Please note the similarity of such methods and interpret the contributions in that context.
 
-- To add to the above: if I am not mistaken {% cite haehnel2003efficient %} was the first grid-based RBPF to be applied to real-world 2D data; you can also see {% cite hoehner2018particle %} for a modern attempt to mix a particle filter (not Rao-Blackwellized) with a 3D TSDF map, using a non-ray-tracing implicit emission.
+- To add to the above: if I am not mistaken {% cite haehnel2003efficient %} was the first grid-based RBPF to be applied to real-world 2D data; you can also see {% cite hoehner2018particle %} for a modern attempt to mix a particle filter (not Rao-Blackwellized) with a 3D TSDF map, using a non-ray-tracing implicit emission for RGB-D data (also related, with a different algorithm and a focus on inference and the PF robustness potential).
 
 - In summary, classical-era EKF & RBPF SLAMs from the 2000s already had a unity of probalistic SSM & spatial assumptions (I hope this is clear from the related work on robotics, as I noted there they are POMDP-compliant).
 And as you can see from the above, grid RBPFs already had an SSM with a dense map, and at least one paper ({% cite fairfield2007realtime %}) was about scaling that to 3D.
