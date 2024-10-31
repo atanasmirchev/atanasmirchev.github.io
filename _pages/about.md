@@ -10,7 +10,7 @@ redirect_from:
 My PhD dissertation is available on [mediatum.ub.tum.de](https://mediatum.ub.tum.de/doc/1720613/1720613.pdf), before you read it please note:
 
 - In the related work I listed traditional grid-based RBPFs (e.g. {% cite murphy1999bayesian grisetti2005rbpfslam %}) next to landmark-based methods which was not the right place, particularly because the following paragraphs were a comment on preprocessed observations.
-Also, I should have pointed out that classical *grid-based* RBPFs already had an integration of a dense map in an SSM and raw range observations, even if lower-dimensional than modern dense RGB-D SLAM.
+Also, I should have pointed out that classical grid-based RBPFs already had an integration of a dense map in an SSM and raw range observations, even if lower-dimensional than modern dense RGB-D SLAM.
 
     The RBPF method in {% cite fairfield2007realtime %} also used a 3D ray-tracing sonar emission, with a small number of rays for speed.
     Its setup is different (underwater coarse octree maps, tunnel movement, water-pressure altitude sensors, 54 sonar beams shaped as pencils, etc.) from the RGB-D one I focused on, but it is similar in trying to scale grid-based probabilistic SLAM to 3D.
@@ -21,13 +21,17 @@ Also, I should have pointed out that classical *grid-based* RBPFs already had an
     Combined, these analogies span the spectrum of thesis aspects (see sec. 3.3), the difference in the thesis is in the underlying model assumptions & inference methods, designed to fit both RGB-D sensors and free 6-DoF movement.
     Please note the similarity of such methods and interpret the contributions in that context.
 
-- To add to the above: if I am not mistaken {% cite haehnel2003efficient %} was the first grid-based RBPF to be applied to real-world 2D data; you can also see {% cite hoehner2018particle %} for a modern attempt to mix a particle filter (not Rao-Blackwellized) with a 3D TSDF map, using a non-ray-tracing implicit emission for RGB-D data (another late find I did not add while I could so pointing it out here; related to concepts in PRISM, with a different inference algorithm and a glimpse at PF robustness).
+- To add to the above: if I am not mistaken {% cite haehnel2003efficient %} was the first grid-based RBPF to be applied to real-world 2D data.
+You can also see {% cite hoehner2018particle %} for a modern attempt to mix a particle filter (not Rao-Blackwellized) with a 3D TSDF map and a non-ray-tracing implicit emission -- this one is for RGB-D data, it is another late find I did not add while I could so pointing it out here.
+It is related in general and also to PRISM, with a different inference algorithm and a glimpse at PF robustness.
+From what I understand it seems it used a zero-mean Gaussian motion model without controls -- in theory replacing that with a control-driven transition should be rather straightforward, which could then be used for predictive rollouts and then one could see the whole as an alternative probabilistic dense RGB-D SSM-and-filter combo for model-based control.
+This is how it connects to my perspective.
 
 - In summary, classical-era EKF & RBPF SLAMs from the 2000s already had a unity of probabilistic SSM & spatial assumptions (I hope this is clear from the related work on robotics, as I noted there they are POMDP-compliant).
-And as you can see from the above, grid RBPFs already had an SSM with a dense map, and at least one paper ({% cite fairfield2007realtime %}) was about scaling that to 3D.
-The aim of my thesis was to provide a similar unified perspective for modern RGB-D dense SLAM.
+And as you can see from the above, grid RBPFs already had an SSM with a dense map, and at least one paper (e.g. {% cite fairfield2007realtime %}) was about scaling that to 3D.
+The aim of my thesis was to present a similar unified perspective for modern RGB-D dense SLAM and highlight the link to control.
 
-    I think the last point should be clear if you read end-to-end, but if you see isolated mentions of "dense SLAM" and it is unclear what I meant from the context, note that the go-to prototypical example I had in mind was generating images with thousands of pixels (e.g. as in contemporary RGB-D or NERF methods).
+    I think the last point should be clear if you read end-to-end, and if you see isolated mentions of "dense SLAM" and it is unclear what I meant from the context, note that the go-to prototypical example I had in mind was generating images with thousands of pixels (e.g. as in contemporary direct RGB-D or NERF methods).
     I do not recall how well I separated modern high-resolution (colored) 3D lidars in my mind in these cases, but in hindsight I think it is cleaner to treat them as separate, because the thesis has solely RGB-D results and I am also more aware of RGB(-D) than lidar trends.
 
 - On p. 68, line 3 I discuss a dynamics term in eq. 5.19 as new.
