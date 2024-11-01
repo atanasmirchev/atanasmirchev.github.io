@@ -22,9 +22,9 @@ Also, I should have pointed out that classical grid-based RBPFs already had an i
     Please note the similarity of such methods and interpret the contributions in that context.
 
 - To add to the above: if I am not mistaken {% cite haehnel2003efficient %} was the first grid-based RBPF to be applied to real-world 2D data.
-You can also see {% cite hoehner2018particle %} for a modern attempt to mix a particle filter (not Rao-Blackwellized) with a 3D TSDF map and a non-ray-tracing implicit emission -- this one is for RGB-D data, it is another late find I did not add while I could so pointing it out here.
+You can also see {% cite hoehner2018particle %} for a modern attempt to mix a particle filter (not Rao-Blackwellized) with a 3D TSDF map and a non-ray-tracing implicit emission -- this one is for RGB-D data like my work, it is another late find I decided not to add while I could and I should have.
 It is related in general and also to PRISM, with a different inference algorithm and a glimpse at PF robustness.
-From what I understand it seems it used a zero-mean Gaussian motion model without controls -- in theory replacing that with a control-driven transition should be rather straightforward, which could then be used for predictive rollouts and then one could see the whole as an alternative probabilistic dense RGB-D SSM-and-filter combo for model-based control.
+From what I understand it seems it used a zero-mean Gaussian motion model without controls -- in theory replacing that with a control-driven transition should be straightforward, which could then be used for predictive rollouts and then one could see the whole as an alternative probabilistic dense RGB-D SSM-and-filter combo for model-based control.
 This is how it connects to my perspective.
 
 - In summary, classical-era EKF & RBPF SLAMs from the 2000s already had a unity of probabilistic SSM & spatial assumptions (I hope this is clear from the related work on robotics, as I noted there they are POMDP-compliant).
