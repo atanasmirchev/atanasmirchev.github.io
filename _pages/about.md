@@ -29,7 +29,7 @@ This is how it connects to my perspective.
 
 - In summary, classical-era EKF & RBPF SLAMs from the 2000s already had a unity of probabilistic SSM & spatial assumptions (I hope this is clear from the related work on robotics, as I noted there they are POMDP-compliant).
 And as you can see from the above, grid RBPFs already had an SSM with a dense map, and at least one paper (e.g. {% cite fairfield2007realtime %}) was about scaling that to 3D.
-The aim of my thesis was to present a similar unified perspective for modern RGB-D dense SLAM and highlight the link to control.
+The aim of my thesis was to present a similar unified perspective for modern RGB-D dense SLAM and highlight the link to control, hopefully adding to the perspectives that exist already (see my related work, the RBPFs and {% cite hoehner2018particle %} above, etc.).
 
     I think the last point should be clear if you read end-to-end, and if you see isolated mentions of "dense SLAM" and it is unclear what I meant from the context, note that the go-to prototypical example I had in mind was generating images with thousands of pixels (e.g. as in contemporary direct RGB-D or NERF methods).
     I do not recall how well I separated modern high-resolution (colored) 3D lidars in my mind in these cases, but in hindsight I think it is cleaner to treat them as separate, because the thesis has solely RGB-D results and I am also more aware of RGB(-D) than lidar trends.
@@ -46,6 +46,14 @@ Note that such exploration is very traditional, if you are interested some early
 
 After the defense, I added {% cite wagner2014humanoid klingensmith2016armslam scona2017proprioception %} last-minute as part of a more general discussion in the related work section, but I did not point out the above.
 Please take care if you cite.
+
+On a different note: appendix C extends the background in Part I., the sources on p. 9 apply here too.
+On the whole, the background theory should be covered by those textbooks and the inline references, though I remember consulting a few more sources on these topics so I want to highlight them here.
+I recall looking up the importance sampling derivation in {% cite soelch2021uncovering %} by Maximilian Sölch and doing equations C.29 and C.31 in the same way (by the way, $$1/\mathcal{Z}$$ in C.30. should be $$\mathcal{Z}$$).
+I also presented the POMDP transition in equation 1.33 as in {% cite kayalibay2024control %} by Baris Kayalibay.
+C.2. is a brief recap of Gauss-Newton and MAP -- I cited *"Factor Graphs for Robot Perception"* by Dellaert and Kaess at the end of the section when I mentioned sparsity, but I fear what did not come across is that the book is a holistic reference, note that you can get most of what I had to say in C.2. from it.
+For the generalized Gauss-Newton perspective in C.2. I remember looking up [this lecture](https://www.youtube.com/watch?v=SuqEx_wPPwI) by Fred Roosta.
+For the theory on rotations and Lie groups I cross-referenced with [these lectures](https://www.youtube.com/playlist?list=PLTBdjV_4f-EJn6udZ34tht9EVIW7lbeo4) by Daniel Cremers.
 
 ## References
 {% bibliography --cited_in_order %}
