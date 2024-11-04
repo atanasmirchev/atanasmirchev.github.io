@@ -47,13 +47,13 @@ Note that such exploration is very traditional, if you are interested some early
 After the defense, I added {% cite wagner2014humanoid klingensmith2016armslam scona2017proprioception %} last-minute as part of a more general discussion in the related work section, but I did not point out the above.
 Please take care if you cite.
 
-On a different note: appendix C extends the background in Part I., the sources on p. 9 apply here too.
-On the whole, the background theory should be covered by those textbooks and the inline references, though I remember consulting a few more sources on these topics so I want to highlight them here.
-I recall looking up the importance sampling derivation in {% cite soelch2021uncovering %} by Maximilian Sölch and doing equations C.29 and C.31 in the same way (by the way, $$1/\mathcal{Z}$$ in C.30. should be $$\mathcal{Z}$$).
-I also presented the POMDP transition in equation 1.33 as in {% cite kayalibay2024control %} by Baris Kayalibay.
-C.2. is a brief recap of Gauss-Newton and MAP -- I cited *"Factor Graphs for Robot Perception"* by Dellaert and Kaess at the end of the section when I mentioned sparsity, but I fear what did not come across is that the book is a holistic reference, note that you can get most of what I had to say in C.2. from it.
-For the generalized Gauss-Newton perspective in C.2. I remember looking up [this lecture](https://www.youtube.com/watch?v=SuqEx_wPPwI) by Fred Roosta.
-For the theory on rotations and Lie groups I cross-referenced with [these lectures](https://www.youtube.com/playlist?list=PLTBdjV_4f-EJn6udZ34tht9EVIW7lbeo4) by Daniel Cremers.
+On a different note: appendix C extends the background in Part I, the sources on p. 9 apply here too.
+On the whole, the background theory should be covered by those textbooks and the inline references, though I remember consulting a few more sources on these topics I did not cite and I spotted one I did not cite well, so I want to highlight them here.
+Modulo only notation, the importance sampling derivation in C.29-C.31 and the reparam. trick formulation in C.26 are the same as in {% cite soelch2021uncovering %} by Maximilian Sölch and the POMDP transition definition in equation 1.33 is the same as in {% cite kayalibay2024control %} by Baris Kayalibay, I remember replicating them in my work (by the way, $$1/\mathcal{Z}$$ in C.30 should be $$\mathcal{Z}$$).
+I believe {% cite soelch2021uncovering %} also influenced my probabilistic background section overall, as I read it right before writing for inspiration.
+Appendix C.2 is a brief recap of Gauss-Newton and MAP -- here I cited *"Factor Graphs for Robot Perception"* by Dellaert and Kaess at the end of the section when I mentioned sparsity, but I fear what did not come across is that the book is a holistic reference, note that you can get most of what I had to say in C.2 from it.
+I also remember looking up the generalized Gauss-Newton equations in C.2 in [this lecture](https://www.youtube.com/watch?v=SuqEx_wPPwI) by Fred Roosta, that would be equations C.15-C.18.
+For the theory on cameras, rotations and Lie groups I used [these lectures](https://www.youtube.com/playlist?list=PLTBdjV_4f-EJn6udZ34tht9EVIW7lbeo4) by Daniel Cremers (e.g. the definitions 2.16-2.18; also, almost all equations in C.8,C.9 and the Lie-group parts in 2.1 are both from there and the micro-Lie-theory tutorial I referenced).
 
 ## References
 {% bibliography --cited_in_order %}
