@@ -44,16 +44,20 @@ Note that such exploration is very traditional, if you are interested some early
 
 - Apropos: classical grid-based RBPFs also harmonize with such exploration (see {% cite stachniss2009exploration %}).
 
-After the defense, I added {% cite wagner2014humanoid klingensmith2016armslam scona2017proprioception %} last-minute as part of a more general discussion in the related work section, but I did not point out the above.
+After the defense, I added {% cite wagner2014humanoid klingensmith2016armslam scona2017proprioception %} last-minute as part of a more general discussion in the related work section on p. 45 (apropos, "forward kinematics *and inertial/odometry* loss terms" would be more accurate there), but I did not point out the above.
 Please take care if you cite.
 
 On a different note: appendix C extends the background in Part I, the sources on p. 9 apply here too.
 On the whole, the background theory should be covered by those textbooks and the inline references, though I remember consulting a few more sources on these topics I did not cite and I spotted one I did not cite well, so I want to highlight them here.
-Modulo only notation, the importance sampling derivation in C.29-C.31 and the reparam. trick formulation in C.26 are the same as in {% cite soelch2021uncovering %} by Maximilian Sölch and the POMDP transition definition in equation 1.33 is the same as in {% cite kayalibay2024control %} by Baris Kayalibay, I remember replicating them in my work (by the way, $$1/\mathcal{Z}$$ in C.30 should be $$\mathcal{Z}$$).
-I believe {% cite soelch2021uncovering %} also influenced my probabilistic background section overall, as I read it right before writing for inspiration.
-Appendix C.2 is a brief recap of Gauss-Newton and MAP -- here I cited *"Factor Graphs for Robot Perception"* by Dellaert and Kaess at the end of the section when I mentioned sparsity, but I fear what did not come across is that the book is a holistic reference, note that you can get most of what I had to say in C.2 from it.
+
+Modulo only notation, the importance sampling derivation in C.29-C.31 and the reparam. trick formulation in C.26 are the same as in {% cite soelch2021uncovering %} by Maximilian Sölch and the POMDP transition definition in equation 1.33 is the same as in {% cite kayalibay2024control %} by Baris Kayalibay, I remember liking their presentation and replicating them in my work (by the way, $$1/\mathcal{Z}$$ in C.30 should be $$\mathcal{Z}$$).
+I also presented my ancestral sampling example in 1.1 very similarly to {% cite soelch2021uncovering %}.
+I also recall looking to {% cite kayalibay2024control %} for ideas on how to introduce the control background, which resulted in presentation similarities in section 1.5 (e.g. the listing of MDP components, the fact I mentioned the Bellman optimality operator, etc.).
+And I think {% cite soelch2021uncovering %} influenced my writing and specifically my probabilistic background because I read it in the early writing stages (e.g. I see similarities in sections 1.1-1.2.1, or my comment on SSM independences in 1.4, there is probably more).
+In hindsight I find I was careless about the above, I should have left a few citations.
+Appendix C.2 is a brief recap of Gauss-Newton and MAP -- here I cited *"Factor Graphs for Robot Perception"* by Dellaert and Kaess at the end of the section when I mentioned sparsity, but what probably did not come across is that the book is a holistic reference, note that you can get most, if not all, of what I had to say in C.2 from it.
 I also remember looking up the generalized Gauss-Newton equations in C.2 in [this lecture](https://www.youtube.com/watch?v=SuqEx_wPPwI) by Fred Roosta, that would be equations C.15-C.18.
-For the theory on cameras, rotations and Lie groups I used [these lectures](https://www.youtube.com/playlist?list=PLTBdjV_4f-EJn6udZ34tht9EVIW7lbeo4) by Daniel Cremers (e.g. the definitions 2.16-2.18; also, almost all equations in C.8,C.9 and the Lie-group parts in 2.1 are both from there and the micro-Lie-theory tutorial I referenced).
+For the theory on cameras, rotations and Lie groups I used [these lectures](https://www.youtube.com/playlist?list=PLTBdjV_4f-EJn6udZ34tht9EVIW7lbeo4) by Daniel Cremers (e.g. IIRC definitions 2.16-2.18 were based on them; also, almost all equations in C.8,C.9 and the Lie-group parts in 2.1 are simultaneously both from there and the micro-Lie-theory tutorial I referenced, the sources overlap).
 
 ## References
 {% bibliography --cited_in_order %}
