@@ -7,7 +7,26 @@ redirect_from:
   - /about.html
 ---
 
-My PhD dissertation is available on [mediatum.ub.tum.de](https://mediatum.ub.tum.de/doc/1720613/1720613.pdf), before you read it please note:
+My PhD dissertation is available on [mediatum.ub.tum.de](https://mediatum.ub.tum.de/doc/1720613/1720613.pdf), before you read it please note the following errata and clarifications.
+
+## Technical points
+
+- The abstract says VI smoothing works reliably for indoor trajectories and I mentioned it works consistently for up to 4 m/s on p. 57.
+In hindsight these are not accurate as blanket statements -- the 2021 paper has results for such data, but that is not exhaustive confirmation.
+For instance, in 2022 I once applied the smoother off-the-shelf to 25 Blackbird trajectories (I think 2 overlapped with the 2021 ones).
+From the plots I found, it seems it worked on 17 out of the box, but on 3 it built up drift, and the rest failed with no visuals (unclear why, maybe NaNs).
+Please take this with a grain of salt, if I remember right this was a one-off trial and I did not inspect the results carefully nor properly investigated the failed ones.
+The point is the method can work for different trajectories, but there is no guarantee it cannot fail, and the thesis does not analyze its robustness.
+As direct SLAM its generalization across scenarios is sensitive to tuning, and I did not properly analyze how resilient it is to data and model stochasticity (I vaguely recall rare stochastic failures due to VI are possible, unless my memory deceives me).
+The general points above apply to the PRISM filter too.
+
+- Also note that both the VI smoother and the PRISM filter provide uncertainty conceptually, but they are approximate solutions and, beyond map infogain exploration, it is unclear if this uncertainty is already sufficient for advanced POMDP control (also see 6.1).
+Beyond the theoretical compromises, for example as per 5.2.2 (please note fig. 5.4 is only an example, the smoother is mean-field diagonal Gaussian), 5.3.2, 6.1, and the paper derivations, I also feel uncertainty calibration is still unresolved.
+PRISM's appendix only scratched the surface of analyzing state calibration (no analysis for the map), there I had to correct the inferred Gaussian scales of both the smoother and the filter by global constants (I think the smoother ones especially were too low, likely because of initialization or convergence, but my memory is hazy and I may be wrong).
+To an extent this depends on the generative uncertainty, which was also not calibrated rigorously (e.g. global scale hyperparameters were mainly tuned for inference success).
+I think there is still a substantial gap between my ideal vision, e.g. sections 1.5.2 and chapter 3, and the results -- personally I see the two inferences as proofs of concepts.
+
+## About related work
 
 - In the related work I listed traditional grid-based RBPFs (e.g. {% cite murphy1999bayesian grisetti2005rbpfslam %}) next to landmark-based methods which was not the right place, particularly because the following paragraphs were a comment on preprocessed observations.
 Also, I should have pointed out that classical grid-based RBPFs already had an integration of a dense map in an SSM and raw range observations, even if lower-dimensional than modern dense RGB-D SLAM.
@@ -55,7 +74,7 @@ I also presented my ancestral sampling example in 1.1 very similarly to {% cite 
 I also recall looking to {% cite kayalibay2024control %} for ideas on how to introduce the control background, which resulted in presentation similarities in section 1.5 (e.g. the listing of MDP components, the fact I mentioned the Bellman optimality operator, etc.).
 And I think {% cite soelch2021uncovering %} influenced my writing and specifically my probabilistic background because I read it in the early writing stages (e.g. I see similarities in sections 1.1-1.2.1, or my comment on SSM independences in 1.4, there is probably more).
 In hindsight I should have handled all the above better and left a few citations.
-Appendix C.2 is a brief recap of Gauss-Newton and MAP -- here I cited *"Factor Graphs for Robot Perception"* by Dellaert and Kaess at the end of the section when I mentioned sparsity, but what probably did not come across is that the book is a holistic reference, note that you can get most, if not all, of what I had to say in C.2 from it.
+Appendix C.2 is a brief recap of Gauss-Newton and MAP -- here I cited *"Factor Graphs for Robot Perception"* by Dellaert and Kaess at the end of the section when I mentioned sparsity, but what probably did not come across is that the book is a holistic reference, note that you can get what I had to say in C.2 from it.
 I also remember looking up the generalized Gauss-Newton equations in C.2 in [this lecture](https://www.youtube.com/watch?v=SuqEx_wPPwI) by Fred Roosta, that would be equations C.15-C.18.
 For the theory on cameras, rotations and Lie groups I used [these lectures](https://www.youtube.com/playlist?list=PLTBdjV_4f-EJn6udZ34tht9EVIW7lbeo4) by Daniel Cremers (e.g. IIRC definitions 2.16-2.18 were based on them; also, almost all equations in C.8,C.9 and the Lie-group parts in 2.1 are simultaneously both from there and the micro-Lie-theory tutorial I referenced, the sources overlap).
 
