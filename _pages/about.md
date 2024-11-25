@@ -24,7 +24,7 @@ The general points above apply to the PRISM filter too.
 Beyond the theoretical compromises, for example as per 5.2.2 (please note fig. 5.4 is only an example, the smoother is mean-field diagonal Gaussian), 5.3.2, 6.1, and the paper derivations, I also feel uncertainty calibration is still unresolved.
 PRISM's appendix only scratched the surface of analyzing state calibration (no analysis for the map), there I had to correct the inferred Gaussian scales of both the smoother and the filter by global constants (I think the smoother ones especially were too low, likely because of initialization or convergence, but my memory is hazy and I may be wrong).
 To an extent this depends on the generative uncertainty, which was also not calibrated rigorously (e.g. global scale hyperparameters were mainly tuned for inference success).
-I think there is still a substantial gap between my ideal vision, e.g. sections 1.5.2 and chapter 3, and the results -- personally I see the two inferences as proofs of concepts.
+Personally, I think there is still a substantial gap between my ideal vision and the results, in terms of section 1.5.2 and certain desirable aspects that go beyond chapter 3 (e.g. calibration, moving away from independent factorizations, multi-modal posteriors, etc.) -- I see the two inferences as early proofs of concepts, the remaining issues would require more work.
 
 ## About related work
 
