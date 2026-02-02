@@ -13,18 +13,19 @@ My PhD dissertation is available on [mediatum.ub.tum.de](https://mediatum.ub.tum
 
 - The abstract says VI smoothing works reliably for indoor trajectories and I mentioned it works consistently for up to 4 m/s on p. 57.
 In hindsight these are not accurate as blanket statements -- the 2021 paper has results for such data, but that is not exhaustive confirmation.
-For instance, in 2022 I once applied the smoother off-the-shelf to 25 Blackbird trajectories (I think 2 overlapped with the 2021 ones).
-From the plots I found, it seems it worked on 17 out of the box, but on 3 it built up drift, and the rest failed with no visuals (unclear why, maybe NaNs).
-Please take this with a grain of salt, if I remember right this was a one-off trial and I did not inspect the results carefully nor properly investigated the failed ones.
+For instance, there was an experiment in 2022 where I applied the smoother off-the-shelf to 25 Blackbird trajectories (I think 2 overlapped with the 2021 ones).
+From the plots I found, it seems it worked on 17 out of the box, but on 3 it built up drift, and the rest failed with no visuals (unclear why).
 The point is the method can work for different trajectories, but there is no guarantee it cannot fail, and the thesis does not analyze its robustness.
 As direct SLAM its generalization across scenarios is sensitive to tuning, and I did not properly analyze how resilient it is to data and model stochasticity (I vaguely recall rare stochastic failures due to VI are possible, unless my memory deceives me).
 The general points above apply to the PRISM filter too.
 
-- Also note that both the VI smoother and the PRISM filter provide uncertainty conceptually, but they are approximate solutions and, beyond map infogain exploration, it is unclear if this uncertainty is already sufficient for advanced POMDP control (also see 6.1).
+- Also note that both the VI smoother and the PRISM filter provide uncertainty conceptually, but they are approximate solutions. Beyond map infogain exploration, this uncertainty might well not be sufficient for belief-state POMDP control (also see 6.1).
 Beyond the theoretical compromises, for example as per 5.2.2 (please note fig. 5.4 is only an example, the smoother is mean-field diagonal Gaussian), 5.3.2, 6.1, and the paper derivations, I also feel uncertainty calibration is still unresolved.
-PRISM's appendix only scratched the surface of analyzing state calibration (no analysis for the map), there I had to correct the inferred Gaussian scales of both the smoother and the filter by global constants (I think the smoother ones especially were too low, likely because of initialization or convergence, but my memory is hazy and I may be wrong).
+PRISM's appendix only scratched the surface of analyzing state calibration (no analysis for the map), there I had to correct the inferred Gaussian scales of both the smoother and the filter by global constants (if memory serves, I think the smoother ones especially were too low, likely because of initialization and convergence).
 To an extent this depends on the generative uncertainty, which was also not calibrated rigorously (e.g. global scale hyperparameters were mainly tuned for inference success).
 Personally, I think there is still a substantial gap between my ideal vision and the results, in terms of section 1.5.2 and certain desirable aspects that go beyond chapter 3 (e.g. calibration, moving away from independent factorizations, multi-modal posteriors, etc.) -- I see the two inferences as early proofs of concepts, the remaining issues would require more work.
+
+- On p. 58, the last two sentences of 5.2 about uses of the VI smoother are hypothetical.
 
 ## About related work
 
@@ -76,7 +77,7 @@ And I think {% cite soelch2021uncovering %} influenced my writing and specifical
 In hindsight I should have handled all the above better and left a few citations.
 Appendix C.2 is a brief recap of Gauss-Newton and MAP -- here I cited *"Factor Graphs for Robot Perception"* by Dellaert and Kaess at the end of the section when I mentioned sparsity, but what probably did not come across is that the book is a holistic reference, note that you can get what I had to say in C.2 from it.
 I also remember looking up the generalized Gauss-Newton equations in C.2 in [this lecture](https://www.youtube.com/watch?v=SuqEx_wPPwI) by Fred Roosta, that would be equations C.15-C.18.
-For the theory on cameras, rotations and Lie groups I used [these lectures](https://www.youtube.com/playlist?list=PLTBdjV_4f-EJn6udZ34tht9EVIW7lbeo4) by Daniel Cremers (e.g. IIRC definitions 2.16-2.18 were based on them; also, almost all equations in C.8,C.9 and the Lie-group parts in 2.1 are simultaneously both from there and the micro-Lie-theory tutorial I referenced, the sources overlap).
+For the theory on cameras, rotations and Lie groups I used [these lectures](https://www.youtube.com/playlist?list=PLTBdjV_4f-EJn6udZ34tht9EVIW7lbeo4) by Daniel Cremers (e.g. IIRC definitions 2.16-2.18 were based on them, with presentation influenced by {% cite engel2017large %}; also, almost all equations in C.8,C.9 and the Lie-group parts in 2.1 are simultaneously both from there and the micro-Lie-theory tutorial I referenced, the sources overlap).
 
 ## References
 {% bibliography --cited_in_order %}
