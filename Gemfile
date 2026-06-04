@@ -11,4 +11,5 @@ group :jekyll_plugins do
   gem "jekyll-octicons"
   gem "jekyll-scholar"
   gem "webrick", "~> 1.8"
+  gem "sass-embedded", "1.69.5"
 end
