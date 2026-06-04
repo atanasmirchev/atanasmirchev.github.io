@@ -19,6 +19,11 @@ The point is the method can work for different trajectories, but there is no gua
 As direct SLAM its generalization across scenarios is sensitive to tuning, and I did not properly analyze how resilient it is to data and model stochasticity (I vaguely recall rare stochastic failures due to VI are possible, unless my memory deceives me).
 The general points above apply to the PRISM filter too.
 
+    Also, all inference results are on research benchmarks, and I assume both inference methods and their published hyperparameters can be brittle for many real-world tasks, given that a large error at any timestep can ruin a whole run.
+    For example, if memory serves, running PRISM using the QCar to obtain a map for section 5.6 took multiple failed trials and careful motion to get a complete final run.
+    Here acceleration control inputs were set to zero which is not ideal (assuming a constant-velocity transition at each timestep, no inertial data).
+    I suspect a good dynamics model / IMU measurements and better RGB-D quality may help in such cases, but I can't be sure -- the devil is in the details.
+
 - Also note that both the VI smoother and the PRISM filter provide uncertainty conceptually, but they are approximate solutions. Beyond map infogain exploration, this uncertainty might well not be sufficient for belief-state POMDP control (also see 6.1).
 Beyond the theoretical compromises, for example as per 5.2.2 (please note fig. 5.4 is only an example, the smoother is mean-field diagonal Gaussian), 5.3.2, 6.1, and the paper derivations, I also feel uncertainty calibration is still unresolved.
 PRISM's appendix only scratched the surface of analyzing state calibration (no analysis for the map), there I had to correct the inferred Gaussian scales of both the smoother and the filter by global constants (if memory serves, I think the smoother ones especially were too low, likely because of initialization and convergence).
@@ -26,6 +31,8 @@ To an extent this depends on the generative uncertainty, which was also not cali
 Personally, I think there is still a substantial gap between my ideal vision and the results, in terms of section 1.5.2 and certain desirable aspects that go beyond chapter 3 (e.g. calibration, moving away from independent factorizations, multi-modal posteriors, etc.) -- I see the two inferences as early proofs of concepts, the remaining issues would require more work.
 
 - On p. 58, the last two sentences of 5.2 about uses of the VI smoother are hypothetical.
+
+- Fig. 1 in the PRISM paper is for illustration, IIRC the uncertainty contours were scaled up (i.e. don't correspond to a standard deviation).
 
 ## About related work
 
