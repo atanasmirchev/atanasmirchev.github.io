@@ -22,7 +22,7 @@ The general points above apply to the PRISM filter too.
     Also, all inference results are on research benchmarks, and I assume both inference methods and their published hyperparameters can be brittle for many real-world tasks, given that a large error at any timestep can ruin a whole run.
     For example, if memory serves, running PRISM using the QCar to obtain a map for section 5.6 took multiple failed trials and careful motion to get a complete final run.
     Here acceleration control inputs were set to zero which is not ideal (assuming a constant-velocity transition at each timestep, no inertial data).
-    I suspect a good dynamics model / IMU measurements and better RGB-D quality may help in such cases, but I can't be sure -- the devil is in the details.
+    I suspect a good dynamics model / IMU measurements and better RGB-D quality may help in some of these cases, but I can't be sure -- not all issues can be solved through data, the devil is in the details.
 
 - Also note that both the VI smoother and the PRISM filter provide uncertainty conceptually, but they are approximate solutions. Beyond map infogain exploration, this uncertainty might well not be sufficient for belief-state POMDP control (also see 6.1).
 Beyond the theoretical compromises, for example as per 5.2.2 (please note fig. 5.4 is only an example, the smoother is mean-field diagonal Gaussian), 5.3.2, 6.1, and the paper derivations, I also feel uncertainty calibration is still unresolved.
